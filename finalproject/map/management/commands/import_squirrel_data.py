@@ -14,7 +14,6 @@ class Command(BaseCommand):
             reader = csv.reader(f, dialect='excel')
             for row in reader:
                 question = Question.objects.create(
-                   latitude =row[0]
-                   longitude=row[1]
-                            =row[1]
+                    longtitude=row[0]
+                    latitude=row[1]
                 )

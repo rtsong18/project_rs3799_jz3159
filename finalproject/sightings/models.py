@@ -62,7 +62,7 @@ class sightings(models.Model):
     primary_fur_color = models.CharField(
         help_text = ('primary fur color'),
         choices = Color_Choices,
-        max_length = 16
+        max_length = 16,
     )
 
 
@@ -129,4 +129,8 @@ class sightings(models.Model):
     )
     runs_from = models.BooleanField(
         help_text = ('runs from'),
+<<<<<<< HEAD
     )
+=======
+         )
+>>>>>>> 5be501371c15e968068d2483757e5fb5498ee432
