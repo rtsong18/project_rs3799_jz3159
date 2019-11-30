@@ -24,7 +24,7 @@ class sightings(models.Model):
     shift = models.CharField(
         help_text = ('shift'),
         choices = Shift_Choices,
-        max_length = 16
+        max_length = 16,
     )
 
 
@@ -45,7 +45,7 @@ class sightings(models.Model):
     age = models.CharField(
         help_text = ('age'),
         choices = Age_Choices,
-        max_length = 16
+        max_length = 16,
     )
 
 
@@ -56,7 +56,7 @@ class sightings(models.Model):
     Color_Choices = (
         (GRAY,'Gray'),
         (CINNAMON,'Cinnamon'),
-        (BLACK,'black')
+        (BLACK,'black'),
         (WHITE,'White'),
     )
     primary_fur_color = models.CharField(
@@ -70,63 +70,63 @@ class sightings(models.Model):
     ABOVE_GROUND = 'Above ground'
     Location_Choices = (
         (GROUND_PLANE,'Ground plane'),
-        (ABOVE_GROUND,'Above ground')
+        (ABOVE_GROUND,'Above ground'),
     )
     location = models.CharField(
         help_text = ('location'),
         choices = Location_Choices,
-        max_length = 16
+        max_length = 16,
     )
 
 
     specific_location = models.CharField(
         help_text = ('specific location'),
-        max_length = 100
+        max_length = 100,
     )
 
 
     running = models.BooleanField(
-        help_text = ('running')
+        help_text = ('running'),
     )
     chasing = models.BooleanField(
-        help_text = ('chasing')
+        help_text = ('chasing'),
     )
     climbing  = models.BooleanField(
-        help_text = ('climbing')
+        help_text = ('climbing'),
     )
     eating = models.BooleanField(
-        help_text = ('eating')
+        help_text = ('eating'),
     )
     foraging = models.BooleanField(
-        help_text = ('foraging')
+        help_text = ('foraging'),
     )
 
     other_activities = models.CharField(
         help_text = ('other activities'),
-        max_length = 100
+        max_length = 100,
     )
 
     kuks = models.BooleanField(
-        help_text = ('kuks')
+        help_text = ('kuks'),
     )
     quaas = models.BooleanField(
-        help_text = ('quaas')
+        help_text = ('quaas'),
     )
     moans = models.BooleanField(
-        help_text = ('moans')
+        help_text = ('moans'),
     )
     tail_flags = models.BooleanField(
-        help_text = ('tail flags')
+        help_text = ('tail flags'),
     )
     tail_twitches = models.BooleanField(
-        help_text = ('tail twitches')
+        help_text = ('tail twitches'),
     )
     approaches = models.BooleanField(
-        help_text = ('approaches')
+        help_text = ('approaches'),
     )
     indifferent = models.BooleanField(
-        help_text = ('indifferent')
+        help_text = ('indifferent'),
     )
     runs_from = models.BooleanField(
-        help_text = ('runs from')
+        help_text = ('runs from'),
     )
