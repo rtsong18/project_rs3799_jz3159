@@ -4,3 +4,7 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'index.html')
+def GET(request):
+    return render(request, 'index.html')
+def POST(request):
+    return render(request, 'index.html')
