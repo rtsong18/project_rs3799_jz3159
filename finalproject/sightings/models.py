@@ -129,8 +129,4 @@ class sightings(models.Model):
     )
     runs_from = models.BooleanField(
         help_text = ('runs from'),
-<<<<<<< HEAD
     )
-=======
-         )
->>>>>>> 5be501371c15e968068d2483757e5fb5498ee432
