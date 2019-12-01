@@ -26,7 +26,7 @@ class sightings(models.Model):
     shift = models.CharField(
         help_text = ('shift'),
         choices = Shift_Choices,
-        max_length = 16
+        max_length = 16,
     )
 
 
@@ -47,7 +47,7 @@ class sightings(models.Model):
     age = models.CharField(
         help_text = ('age'),
         choices = Age_Choices,
-        max_length = 16
+        max_length = 16,
     )
 
 
@@ -131,4 +131,4 @@ class sightings(models.Model):
     )
     runs_from = models.BooleanField(
         help_text = ('runs from'),
-         )
+    )
