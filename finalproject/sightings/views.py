@@ -5,8 +5,8 @@ from django.views.generic.edit import !!!!!!!!!!!!!!!!!!!!
 # Create your views here.
 
 def index(request):
-    squirrel = squirrel.object.all()
-    context = {'squirrel_index':squirrel}
+    squirrels = squirrel.object.all()
+    context = {'squirrel_index':squirrels}
     return render(request, 'sightings/index.html',context)
 
 
