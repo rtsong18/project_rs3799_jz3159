@@ -4,10 +4,12 @@ from django.db import models
 class sightings(models.Model):
 
     latitude  = models.DecimalField(
-        help_text = ('latitude'),
+            max_digits=5, decimal_places=2,
+            help_text = ('latitude'),
     )
     longitude  = models.DecimalField(
-        help_text = ('longitude'),
+            max_digits=5, decimal_places=2,
+            help_text = ('longitude'),
     )
     Unique_Squirrel_ID = models.IntegerField(
         help_text = ('Unique Squirrel_ID'),

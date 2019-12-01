@@ -4,8 +4,10 @@ from django.db import models
 class map(models.Model):
 
     latitude  = models.DecimalField(
+        max_digits=5, decimal_places=2,
         help_text = ('latitude'),
     )
-    longitude  = models.DecimalField(
+    longtitude  = models.DecimalField(
+        max_digits=5, decimal_places=2,
         help_text = ('longitude'),
     )
