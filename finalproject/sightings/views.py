@@ -11,28 +11,6 @@ def index(request):
 
 
 
-
-
-
-def add(request):
-    squirrel = squirrels.objects.all()
-    context = {'squirrel_index':squirrel}
-    return render(request, 'sightings/add.html',context)
-
-
-
-
-
-def delete(request):
-    squirrel = squirrels.objects.all()
-    context = {'squirrel_index':squirrel}
-    return render(request, 'sightings/delete.html',context)
-
-
-
-
-
-
 def details(request,unique_squirrel_id):
     squirrel = squirrels.objects.get(unique_squirrel_id=snique_squirrel_id)
     context = {'squirrel':squirrel}
@@ -41,14 +19,35 @@ def details(request,unique_squirrel_id):
 
 
 def stats(request):
-    num_squirrels = squirrels.objects.all().count()
-    
-    context = {'num_sqirrels':num_squirrels}
+    squirrels = squirrels.objects.all()
+    num_squirrels = squirrels.count()
+    num_adult = squirrels.filter(age = 'Adult').count()
+    num_color_gray = squirrels.filter(primary_fur_color = 'Gray').count()
+    num_eating = squirrels.filter( eating = True ).count()
+    num_lazy_squirrels = squirrels.filter(shift = 'PM').count()
+    context = {
+            'num_sqirrels':num_squirrels,
+            'num_adult':num_adult,
+            'num_color_gray':num_color_gray,
+            'num_eating': num_eating,
+            'num_lazy_squirrels' : num_lazy_squirrels,
+            }
     return render(request, 'sightings/stats.html',context)
 
 
 
 
+
+
+def add(request):
+    squirrel = squirrels.objects.all()
+    context = {'squirrel_index':squirrel}
+    return render(request, 'sightings/add.html',context)
+
+def delete(request):
+    squirrel = squirrels.objects.all()
+    context = {'squirrel_index':squirrel}
+    return render(request, 'sightings/delete.html',context)
 
 def update(request):
     squirrel = squirrel.objects.all()
