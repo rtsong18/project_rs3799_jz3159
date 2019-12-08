@@ -1,0 +1,20 @@
+  
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New squirrel</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Add a new user</h1>
+    <form method= "POST">
+      {% csrf_token %}
+
+      {{ form.as_p}}
+      <br>
+      <input type='submit'  name='add'>
+      <br>
+      <a href="{% url 'sightings:index' %}">Go Back to sqirrel sightings</a>
+    </form>
+  </body>
+</html>

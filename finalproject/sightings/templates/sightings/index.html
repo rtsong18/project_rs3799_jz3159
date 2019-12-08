@@ -14,10 +14,16 @@
               <td>{{ squirrel.latitude }}</td>
               <td>{{ squirrel.longitude }}</td>
               <td>{{ squirrel.unique_squirrel_id }}</td>
+              <td><a href="{% url 'sightings:details' unique_squirrel_id=squirrel.unique_squirrel_id %}">Show</a><a href="{% url 'sightings:update' unique_squirrel_id=squirrel.unique_squirrel_id %}">Edit</a></td>
+
             </tr>
           {% endfor %}
-        </tbody> 
+        </tbody>
       </table>
+    </div>
+
+    <div class ="newline">
+    <!-- link allows user to create a new squirrel -->
     </div>
   </body>
 </html>    
