@@ -12,5 +12,5 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-def GET(request):
+def index(request):
     return render(request,'map/index.html') 
