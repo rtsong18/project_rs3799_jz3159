@@ -6,8 +6,8 @@ from .forms import squirrels_form
 
 
 def index(request):
-    squirrels = squirrels.objects.all()
-    context = {'squirrel_index':squirrels}
+    squirrels_ = squirrels.objects.all()
+    context = {'squirrel_index':squirrels_}
     return render(request, 'sightings/index.html',context)
 
 def details(request,unique_squirrel_id):
@@ -24,17 +24,25 @@ def add(request):
     else:
         form = squirrels_form()
     context = {
-        'form' = form,
+            'form' : form,
             }
+
     return render(request, 'sightings/add.html',context)
 
+def test(request):
+    s = squirrels.objects.all()[0]
+    context = {
+            's':s
+            }
+    return render(request,'sightings/test.html',context)
+
 def stats(request):
-    squirrels = squirrels.objects.all()
-    num_squirrels = squirrels.count()
-    num_adult = squirrels.filter(age = 'Adult').count()
-    num_color_gray = squirrels.filter(primary_fur_color = 'Gray').count()
-    num_eating = squirrels.filter( eating = True ).count()
-    num_lazy_squirrels = squirrels.filter(shift = 'PM').count()
+    squirrels_ = squirrels.objects.all()
+    num_squirrels = squirrels_.count()
+    num_adult = squirrels_.filter(age = 'Adult').count()
+    num_color_gray = squirrels_.filter(primary_fur_color = 'Gray').count()
+    num_eating = squirrels_.filter( eating = True ).count()
+    num_lazy_squirrels = squirrels_.filter(shift = 'PM').count()
     context = {
             'num_sqirrels':num_squirrels,
             'num_adult':num_adult,
@@ -46,7 +54,7 @@ def stats(request):
 
 def update(request,unique_squirrel_id):
     squirrel = squirrels.objects.get(unique_squirrel_id = unique_squirrel_id)
-    if request.method = 'POST':
+    if request.method == 'POST':
         form = squirrels_form(request.POST,instance = squirrel)
     if form.is_valid():
         form.save()
@@ -54,6 +62,6 @@ def update(request,unique_squirrel_id):
     else:
         form = squirrels_form(instance = squirrel)
     context ={
-        'form' = form,
+            'form' : form,
             }
     return render(request,'sightings/add.html',context)
