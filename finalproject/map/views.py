@@ -6,8 +6,6 @@ from django.template import loader
 from .models import squirrels
 
 def index(request):
-    squirrelss = squirrels.objects.all()
-    context = {
-            squirrelss: 'squirrelss'
-            }
-    return render(request,'map/index.html',context) 
+    sightings= squirrels.objects.all()[0:10]
+    return render(request,'map/index.html',{'sightings':sightings}) 
+
