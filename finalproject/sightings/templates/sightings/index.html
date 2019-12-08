@@ -5,16 +5,24 @@
     <title>Squirrel Index</title>
   </head>
   <body>
-    <h1>all squirrel</h1>
+    <h1>all squirrels</h1>
+    
+    <div class ="newline">
+    <!-- link allows user to create a new squirrel -->
+    <p><a href='/sightings/stats'>squirrel sightings statistics</a></p>
+    <p><a href='/sightings/add'>Add a new sighting</a></p>
+    </div>
+    
+    
     <div class="wrapper">
       <table>
         <tbody>
-          {% for squirrel in squirrels %}
+          {% for squirrel in squirrel_index %}
             <tr>
-              <td>{{ squirrel.latitude }}</td>
-              <td>{{ squirrel.longitude }}</td>
-              <td>{{ squirrel.unique_squirrel_id }}</td>
-              <td><a href="{% url 'sightings:details' unique_squirrel_id=squirrel.unique_squirrel_id %}">Show</a><a href="{% url 'sightings:update' unique_squirrel_id=squirrel.unique_squirrel_id %}">Edit</a></td>
+	      <td>squirrel: {{ squirrel.unique_squirrel_id }}	</td>
+              <td>latitude: {{ squirrel.latitude }}	</td>
+              <td>longitude: {{ squirrel.longtitude }}	</td>
+	      <td><a href='/sightings/{{squirrel.unique_squirrel_id}}'>Show	</a> <a href='/sightings/{{squirrels.unique_squirrel_id}}/update'>Edit</a></td>
 
             </tr>
           {% endfor %}
@@ -22,8 +30,5 @@
       </table>
     </div>
 
-    <div class ="newline">
-    <!-- link allows user to create a new squirrel -->
-    </div>
   </body>
 </html>    
