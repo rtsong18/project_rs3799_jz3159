@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse !!!!!!!!!!!!!!
-from django.views.generic.edit import !!!!!!!!!!!!!!!!!!!! 
+from django.http import HttpResponse 
 
 # Create your views here.
 
 def index(request):
-    squirrels = squirrel.object.all()
+    squirrels = squirrels.objects.all()
     context = {'squirrel_index':squirrels}
     return render(request, 'sightings/index.html',context)
 
@@ -15,7 +14,7 @@ def index(request):
 
 
 def add(request):
-    squirrel = squirrel.object.all()
+    squirrel = squirrels.objects.all()
     context = {'squirrel_index':squirrel}
     return render(request, 'sightings/add.html',context)
 
@@ -24,7 +23,7 @@ def add(request):
 
 
 def delete(request):
-    squirrel = squirrel.object.all()
+    squirrel = squirrels.objects.all()
     context = {'squirrel_index':squirrel}
     return render(request, 'sightings/delete.html',context)
 
@@ -34,7 +33,7 @@ def delete(request):
 
 
 def details(request):
-    squirrel = squirrel.object.all()
+    squirrel = squirrels.objects.all()
     context = {'squirrel_index':squirrel}
     return render(request, 'sightings/details.html',context)
 
@@ -47,6 +46,6 @@ def details(request):
 
 
 def update(request):
-    squirrel = squirrel.object.all()
+    squirrel = squirrels.objects.all()
     context = {'squirrel_index':squirrel}
     return render(request, 'sightings/update.html',context)

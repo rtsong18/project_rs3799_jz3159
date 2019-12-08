@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class sightings(models.Model):
+class squirrels(models.Model):
 
     latitude  = models.DecimalField(
             max_digits=5, decimal_places=2,
