@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse 
-
+from map.models import squirrels
+from .forms import squirrels_form 
 # Create your views here.
+
 
 def index(request):
     squirrels = squirrels.objects.all()
@@ -9,13 +11,21 @@ def index(request):
     return render(request, 'sightings/index.html',context)
 
 def details(request,unique_squirrel_id):
-    squirrel = squirrels.objects.get(unique_squirrel_id=snique_squirrel_id)
+    squirrel = squirrels.objects.get(unique_squirrel_id=unique_squirrel_id)
     context = {'squirrel':squirrel}
     return render(request, 'sightings/details.html',context)
 
 def add(request):
-    squirrel = squirrels.objects.all()
-    context = {'squirrel_index':squirrel}
+    if request.method =='POST':
+        form = squirrels_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/')
+    else:
+        form = squirrels_form()
+    context = {
+        'form' = form,
+            }
     return render(request, 'sightings/add.html',context)
 
 def stats(request):
@@ -34,7 +44,16 @@ def stats(request):
             }
     return render(request, 'sightings/stats.html',context)
 
-def update(request):
-    squirrel = squirrels.objects.all()
-    context = {'squirrel_index':squirrel}
-    return render(request, 'sightings/update.html',context)
+def update(request,unique_squirrel_id):
+    squirrel = squirrels.objects.get(unique_squirrel_id = unique_squirrel_id)
+    if request.method = 'POST':
+        form = squirrels_form(request.POST,instance = squirrel)
+    if form.is_valid():
+        form.save()
+        return redirect(f'/sightings/{unique_squirrel_id}')
+    else:
+        form = squirrels_form(instance = squirrel)
+    context ={
+        'form' = form,
+            }
+    return render(request,'sightings/add.html',context)
