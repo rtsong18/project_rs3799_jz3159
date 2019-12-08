@@ -53,7 +53,7 @@ class map(models.Model):
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
     Age_Choices = (
-        (ADULT, 'Adule'),
+        (ADULT, 'Adult'),
         (JUVENILE,'Juvenile'),
     )
     age = models.CharField(
