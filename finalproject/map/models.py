@@ -1,14 +1,14 @@
 from django.db import models
 
 # Create your models here.
-class map(models.Model):
+class squirrels(models.Model):
 
     latitude  = models.DecimalField(
-        max_digits=5, decimal_places=2,
+        max_digits=20, decimal_places=10,
         help_text = ('latitude'),
     )
     longtitude  = models.DecimalField(
-        max_digits=5, decimal_places=2,
+        max_digits=20, decimal_places=10,
         help_text = ('longitude'),
     )
     unique_squirrel_id = models.CharField(
@@ -53,7 +53,7 @@ class map(models.Model):
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
     Age_Choices = (
-        (ADULT, 'Adule'),
+        (ADULT, 'Adult'),
         (JUVENILE,'Juvenile'),
     )
     age = models.CharField(
