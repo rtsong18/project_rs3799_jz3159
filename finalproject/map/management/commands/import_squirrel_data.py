@@ -54,5 +54,5 @@ class Command(BaseCommand):
                     borough_boundaries=row[33],
                     city_council_districts=row[34],
                     police_precincts=row[35],
-                    )
-                
+                     )
+
