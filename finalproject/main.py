@@ -1,4 +1,4 @@
-from project.wsgi import application
+from finalproject.wsgi import application
   
 app=application
 
