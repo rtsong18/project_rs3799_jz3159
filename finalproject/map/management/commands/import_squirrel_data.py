@@ -1,23 +1,22 @@
 import csv
-from  map.models import map
+from  map.models import squirrels
 from django.core.management.base import BaseCommand, CommandError
 
 class Command(BaseCommand):
     help = 'Load a questions csv file into the database'
 
     def add_arguments(self, parser):
-        parser.add_argument('--path', type=str)
+        parser.add_argument('csv_file')
 
-    def handle(self, *args, **kwargs):
-        path = kwargs['path']
-        with open(path, 'rt') as f:
+    def handle(self, *args,**options):
+        with open(options['csv_file'], 'rt') as f:
             reader = csv.reader(f, dialect='excel')
             i=0
             for row in reader:
                 if i==0:
                     i=i+1
                     continue
-                map.objects.create(
+                squirrels.objects.create(
                     longtitude=float(row[0]),
                     latitude=float(row[1]),
                     unique_squirrel_id=row[2],
