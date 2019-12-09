@@ -56,9 +56,9 @@ def update(request,unique_squirrel_id):
     squirrel = squirrels.objects.get(unique_squirrel_id = unique_squirrel_id)
     if request.method == 'POST':
         form = squirrels_form(request.POST,instance = squirrel)
-    if form.is_valid():
-        form.save()
-        return redirect(f'/sightings/{unique_squirrel_id}')
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/{unique_squirrel_id}')
     else:
         form = squirrels_form(instance = squirrel)
     context ={
