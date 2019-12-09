@@ -7,5 +7,5 @@ urlpatterns = [
     path('stats', views.stats,name = 'stats'),
     path('<str:unique_squirrel_id>', views.details ,name = 'details'),
     path('<str:unique_squirrel_id>/update', views.update ,name = 'update'),
-    path('test',views.test,name = 'test')
+    
 ]

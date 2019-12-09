@@ -29,12 +29,6 @@ def add(request):
 
     return render(request, 'sightings/add.html',context)
 
-def test(request):
-    s = squirrels.objects.all()[0]
-    context = {
-            's':s
-            }
-    return render(request,'sightings/test.html',context)
 
 def stats(request):
     squirrels_ = squirrels.objects.all()
